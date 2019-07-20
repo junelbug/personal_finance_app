@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import './models/transaction.dart';
 import './widgets/new_transaction.dart';
 import './widgets/transaction_list.dart';
 import './widgets/chart.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -38,7 +42,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  
   final List<Transaction> _userTransactions = [
     Transaction(
       id: 't1',
@@ -93,7 +96,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    
     final appBar = AppBar(
       title: Text('Personal Expenses'),
       actions: <Widget>[
@@ -103,8 +105,9 @@ class _MyHomePageState extends State<MyHomePage> {
         )
       ],
     );
-    final deviceHeight = MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top -
-                        appBar.preferredSize.height;
+    final deviceHeight = MediaQuery.of(context).size.height -
+        MediaQuery.of(context).padding.top -
+        appBar.preferredSize.height;
     return Scaffold(
       appBar: appBar,
       body: SingleChildScrollView(
