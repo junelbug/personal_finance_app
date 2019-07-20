@@ -107,11 +107,12 @@ class _MyHomePageState extends State<MyHomePage> {
         )
       ],
     );
-    final deviceHeight = MediaQuery.of(context).size.height -
-        MediaQuery.of(context).padding.top -
+    final mdQu = MediaQuery.of(context);
+    final deviceHeight = mdQu.size.height -
+        mdQu.padding.top -
         appBar.preferredSize.height;
     final isLandscape =
-        MediaQuery.of(context).orientation == Orientation.landscape;
+        mdQu.orientation == Orientation.landscape;
     final txListWidget = Container(
                     height: (deviceHeight) * 0.7,
                     child:
