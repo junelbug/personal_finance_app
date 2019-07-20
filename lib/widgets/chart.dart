@@ -23,11 +23,7 @@ class Chart extends StatelessWidget {
             recentTransactions[i].date.year == weekDay.year) {
           totalSum += recentTransactions[i].amount;
         }
-      }
-
-      print(DateFormat.E().format(weekDay));
-      print(totalSum);
-
+      } 
       return {
         'day': DateFormat.E().format(weekDay).substring(0, 1),
         'amount': totalSum,
