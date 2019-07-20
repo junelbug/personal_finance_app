@@ -18,11 +18,13 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.amber,
         appBarTheme: AppBarTheme(
           textTheme: ThemeData.light().textTheme.copyWith(
-                title: TextStyle(
-                  fontFamily: 'OpenSans',
-                  fontSize: 20,
-                ),
+              title: TextStyle(
+                fontFamily: 'OpenSans',
+                fontSize: 20,
               ),
+              button: TextStyle(color: Colors.white),
+              ),
+              
         ),
       ),
       home: MyHomePage(),
@@ -58,11 +60,11 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList();
   }
 
-  void _addNewTransaction(String txTitle, double txAmount) {
+  void _addNewTransaction(String txTitle, double txAmount, DateTime chosenDate) {
     final newTx = Transaction(
         title: txTitle,
         amount: txAmount,
-        date: DateTime.now(),
+        date: chosenDate,
         id: DateTime.now().toString());
     setState(() {
       _userTransactions.add(newTx);
